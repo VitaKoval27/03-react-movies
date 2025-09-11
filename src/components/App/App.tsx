@@ -14,9 +14,8 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSearch = async (formData: FormData) => {
-    const query = formData.get('query') as string;
-
+  const handleSearch = async (query: string) => {
+    
     if (!query.trim()) {
       toast('Choose the topic');
       return; 
@@ -68,7 +67,7 @@ function App() {
       {error && <ErrorMessage message={error} onClose={handleErrorClose} />}
 
       {!isLoading && !error && movies.length > 0 && (
-        <MovieGrid items={movies} onMovieClick={handleMovieSelect} />
+        <MovieGrid movies={movies} onSelect={handleMovieSelect} />
       )}
       
       {selectedMovie && (

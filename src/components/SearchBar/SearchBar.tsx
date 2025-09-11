@@ -3,7 +3,7 @@ import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   
-  onSubmit: (formData: FormData) => void;
+  onSubmit: (query: string) => void;
 }
 
 export default function SearchBar({ onSubmit }: SearchBarProps) {
@@ -17,7 +17,7 @@ export default function SearchBar({ onSubmit }: SearchBarProps) {
     }
 
     
-    onSubmit(formData);
+    onSubmit(query);
   };
 
   return (
